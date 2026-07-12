@@ -1,4 +1,5 @@
 __pycache__/
-venv/
+myenv/
 .env
 users.db
+CODE.zip
