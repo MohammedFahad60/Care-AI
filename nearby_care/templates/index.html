@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <h1>Nearby Care</h1>
+  <input id="d-spec" placeholder="Specialty (e.g. Dentist)" />
+  <input id="d-loc" placeholder="City / Zip Code" />
+  <button onclick="getMyLocation()">Use GPS</button>
+  <button onclick="findDocs()">Search</button>
+
+  <h3>Verified Locations</h3>
+  <div id="d-list">No results found.</div>
+
+  <iframe id="gmap-frame" width="100%" height="400px" src="about:blank"></iframe>
+</div>
+{% endblock %}

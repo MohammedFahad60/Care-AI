@@ -1,0 +1,3 @@
+# Model Configuration
+random_forest_trees: 100
+max_depth: 10

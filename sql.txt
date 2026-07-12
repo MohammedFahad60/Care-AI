@@ -1,0 +1,39 @@
+-- Create the Database
+CREATE DATABASE IF NOT EXISTS careai_db;
+USE careai_db;
+
+-- 1. Users Table (For Login/Register)
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 2. History Table (For storing AI Analysis)
+CREATE TABLE IF NOT EXISTS history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    disease VARCHAR(255),
+    description TEXT,
+    medicine TEXT,
+    diet TEXT,
+    date DATETIME,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- 3. Appointments Table (For Doctor Booking)
+CREATE TABLE IF NOT EXISTS appointments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    doctor_name VARCHAR(255),
+    appointment_date DATETIME,
+    reason VARCHAR(255),
+    status VARCHAR(50) DEFAULT 'Confirmed',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+ALTER TABLE history ADD COLUMN medicine TEXT;
+ALTER TABLE history ADD COLUMN diet TEXT;
