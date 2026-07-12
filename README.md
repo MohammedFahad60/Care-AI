@@ -157,7 +157,7 @@ Automatically detects emergencies.
 
 ## 📂 **Project Architecture**
 
-```
+```'
 📦 backend
 │
 ├── 📂 data                  # Training datasets
@@ -193,6 +193,7 @@ Automatically detects emergencies.
 ├── test_db.py               # DB connectivity test
 ├── test_key.py              # Gemini API test
 └── users.db                 # SQLite database
+
 ```
 
 ---
